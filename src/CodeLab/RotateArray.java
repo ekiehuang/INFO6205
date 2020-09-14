@@ -8,14 +8,16 @@ public class RotateArray {
     System.out.println(Arrays.toString(nums));
   }
   public void rotate(int[] nums, int k) {
-   int n=nums.length;
-   int[] result=new int[n];
-   for(int i=0;i<k;i++){
-     result[i]=nums[n-k+i];
-   }
-   for(int i=0;i<n-k;i++){
-     result[i+k]=nums[i];
-   }
+    if(nums.length==1) return;
+    int n=nums.length;
+    int time=k%n;
+    int[] result=new int[n];
+    for(int i=0;i<time;i++){
+      result[i]=nums[n-time+i];
+    }
+    for(int i=0;i<n-time;i++){
+      result[i+time]=nums[i];
+    }
     System.arraycopy(result, 0, nums, 0, n);
   }
 }

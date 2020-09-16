@@ -5,6 +5,7 @@ public class IsUnique {
         System.out.println(new IsUnique().isUnique("abcd"));
     }
     public boolean isUnique(String s){
+        if(s==null ||s.length()<2) return true;
         HashSet<Character> set=new HashSet<>();
         for(int i=0;i<s.length();i++){
             if(set.contains(s.charAt(i))) return false;

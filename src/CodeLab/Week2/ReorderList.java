@@ -7,7 +7,6 @@ public class ReorderList {
     head.next.next.next.next=new ListNode(5);
     head.next.next.next.next.next=new ListNode(6);
     head.next.next.next.next.next.next=new ListNode(7);
-
     new ReorderList().reorderList(head);
   }
   public void reorderList(ListNode head) {
@@ -40,11 +39,19 @@ public class ReorderList {
     //insert
     ListNode dummy=head;
     while(b!=null){
-      ListNode temp=new ListNode(b.val);
+      ListNode temp=dummy.next;
+      dummy.next=b;
+      dummy=temp;
+
+      temp=b.next;
+      b.next=dummy;
+      b=temp;
+
+      /*ListNode temp=new ListNode(b.val);
       temp.next=dummy.next;
       dummy.next=temp;
       b=b.next;
-      dummy=dummy.next.next;
+      dummy=dummy.next.next;*/
     }
   }
 }

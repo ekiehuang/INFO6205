@@ -12,12 +12,13 @@ public class ReverseKGroup {
   }
 
   public ListNode reverseKGroup(ListNode head, int k) {
-    if (head == null || k < 2) return head;
     ListNode dummy=new ListNode(0);
     dummy.next=head;
     ListNode pre=dummy,end=dummy;
     while(end.next!=null){
-      for(int i=0;i<k&&end!=null;i++) end=end.next;
+      for(int i=0;i<k&&end!=null;i++){
+        end=end.next;
+      }
       if(end==null) break;
       ListNode nex=end.next;
       end.next=null;
@@ -31,12 +32,12 @@ public class ReverseKGroup {
   }
 
   private ListNode reverse(ListNode start) {
-    ListNode back = null, cur = start, front;
-    while (cur!=null) {
-      front = cur.next;
-      cur.next = back;
-      back = cur;
-      cur = front;
+    ListNode back=null,cur=start,front;
+    while(cur!=null){
+      front=cur.next;
+      cur.next=back;
+      back=cur;
+      cur=front;
     }
     return back;
   }
